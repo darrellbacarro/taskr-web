@@ -8,13 +8,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <head />
-      <body>
-        <AnimatePresence mode='wait'>
-          {children}
-        </AnimatePresence>
-      </body>
-    </html>
+    <AnimatePresence mode='wait'>
+      {children}
+    </AnimatePresence>
   )
 }

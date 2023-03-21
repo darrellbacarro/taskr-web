@@ -1,0 +1,143 @@
+@import url('../assets/sfpro/stylesheet.css');
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'SF Pro Text', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.sidebar-container {
+  width: 250px;
+  height: 100%;
+  border-right: 1px solid #F4F5F5;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.sidebar-container[data-iscollapsed="true"] {
+  width: 80px;
+}
+
+.sidebar-container[data-iscollapsed="true"] > .sidebar-item {
+  align-items: center;
+  justify-content: center;
+}
+
+.work-area {
+  flex: 1;
+  height: 100%;
+  background-color: #F4F6F8;
+  position: relative;
+}
+
+.sidebar-item {
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.sidebar-item:hover {
+  border: 1px #F4F5F5 solid;
+  cursor: pointer;
+}
+
+.sidebar-item.active {
+  color: #228BE6;
+}
+
+.sidebar-item .highlighter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: #F4F6F8;
+  z-index: -1;
+}
+
+.trunk, .branch {
+  position: relative;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 8px;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.trunk {
+  align-self: stretch;
+
+  &.active {
+    background-color: #cee9ff8f;
+    
+    & > * {
+      color: rgba(0, 0, 0, 0.9);
+      font-weight: 500;
+    }
+  }
+}
+
+.trunk:hover, .branch:hover {
+  cursor: pointer;
+  background-color: #F5F7F9;
+}
+
+.branch {
+  margin-left: 24px;
+}
+
+.branch:first-of-type:before {
+  height: 60%;
+  top: 0;
+}
+
+.branch::before {
+  content: ' ';
+  position: absolute;
+  left: -11px;
+  top: -72%;
+  height: 125%;
+  width: 11px;
+  border-radius: 7px;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px #C5C5C5 solid;
+  border-top-width: 0;
+  border-right-width: 0;
+}
+
+textarea.task-input {
+  border: 0;
+  resize: none;
+  font-family: 'SF Pro Text', sans-serif;
+  font-weight: 600;
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.task-title-input {
+  position: sticky;
+  top: 0;
+  background-image: linear-gradient(to bottom, #ffffff 85%, transparent);
+  z-index: 5;
+}
+
+.task-modal {
+  .mantine-Modal-body {
+    padding: 0 !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+}
